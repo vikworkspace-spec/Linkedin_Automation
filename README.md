@@ -2,7 +2,7 @@
 
 > Complete automation system for generating, building, and scheduling LinkedIn content for Founders Wing: 16 posts per day (4 Reddit-based + 7 AI news + 5 report-driven performance posts) with carousel PDFs, infographic PNGs, and Slack delivery.
 
-> **Content positioning — the "Varun Mayya of LinkedIn."** As of 2026-06-14, every stream is governed by [`content-doctrine.md`](content-doctrine.md): we write for ambitious generalists who want to know where AI is going and how to get ahead, framed around AI's impact on work, income, skills, and the future. Technical tutorials, indie-hacker tactics, and tool how-tos are out (they underperform); future-of-work, opportunity, and accessible explainers are in. FounderWing stays the brand. The doctrine overrides older topic guidance in any skill file.
+> **Content positioning — the "Varun Mayya of LinkedIn."** As of 2026-06-14, every stream is governed by [`content-doctrine.md`](content-doctrine.md): we write for ambitious generalists who want to know where AI is going and how to get ahead, framed around AI's impact on work, income, skills, and the future. Technical tutorials, indie-hacker tactics, and tool how-tos are out (they underperform); future-of-work, opportunity, and accessible explainers are in. Zetabot AI stays the brand. The doctrine overrides older topic guidance in any skill file.
 
 ---
 
@@ -72,7 +72,7 @@ cd carousel-routine && npm install
 | `daily-linkedin-posts/SKILL.md` | Master orchestration skill — the full pipeline steps |
 | `commands/linkedin-content.md` | Reddit post writing rules, output format, banned words |
 | `skills/linkedin-ai-news-engine/SKILL.md` | AI news engine — 7 archetype post generation |
-| `skills/linkedin-performance-engine/SKILL.md` | Performance engine — 5 posts modeled on @founderswing's own analytics |
+| `skills/linkedin-performance-engine/SKILL.md` | Performance engine — 5 posts modeled on @zetabotai's own analytics |
 | `founderswing_linkedin_content_report.md` | Live LinkedIn analytics report — the performance engine reads this each run; drop in an updated report to refresh the winning patterns |
 | `skills/branded-carousel/SKILL.md` | Carousel design system, slide layouts, brand research |
 | `skills/branded-carousel/FORMATS.md` | 6 carousel format templates (Brand Story, Listicle, etc.) |
@@ -249,3 +249,5 @@ The `sample-outputs/` folder contains a complete set from the June 12, 2026 run:
 - `linkedin_posts_20260612.html` — Carousel HTML slides
 - `linkedin_posts_20260612.pdf` — Compiled carousel PDF
 - `linkedin-infographic-20260612.png` — Infographic PNG
+#   L i n k e d i n _ A u t o m a t i o n 2  
+ 
