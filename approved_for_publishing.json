@@ -1,0 +1,22 @@
+{
+  "post_20260627_post_3_2b101e": {
+    "post_id": "post_20260627_post_3_2b101e",
+    "content": "Jeff Bezos is betting 12 billion dollars on a robot that can think like a human engineer.\nPrometheus is not building a machine that merely moves boxes or sorts mail. Most industrial robots follow a fixed script. They fail the moment a bolt is loose or a wire is misplaced.\nPrometheus aims to build a general engineer. This is a system that can troubleshoot a broken engine, diagnose a mechanical failure, and repair a physical system without a human guiding every move.\nLaw firms managing large real estate portfolios or industrial clients will see this shift first. Automated maintenance and autonomous repair systems reduce the need for onsite technicians and lower operational overhead for asset managers.\nThe legal implications for liability and professional negligence will shift. When a robot performs a structural repair that fails, the dispute moves from human error to product liability and algorithmic negligence.\nWhich practice area will handle the liability claims when autonomous robots begin managing physical infrastructure?\nFollow for daily legal staffing insights.",
+    "post_type": "text",
+    "file_path": null,
+    "file_title": null,
+    "approved_at": "2026-06-27T17:50:43.077158Z",
+    "approved_by": "slack_reaction:U0BDGFXLXMG",
+    "slack_message_ts": "1782578426.671099"
+  },
+  "post_20260627_post_7_e8e3fb": {
+    "post_id": "post_20260627_post_7_e8e3fb",
+    "content": "Law firms cannot risk public errors caused by AI making up facts.\nOne wrong citation in a court filing or a client report creates a reputation crisis.\nPrevent this by using a two agent audit loop. \nFirst, have one AI draft the report. Then, feed that draft and the original source documents into a second AI with a specific instruction: \"Identify every claim in the draft that is not explicitly supported by the source text and flag it as an error.\"\nThis forces the AI to act as a critic. It catches false claims before a partner sees them.\nWhich practice area currently faces the highest risk from AI errors?\nFollow for daily legal staffing insights.",
+    "post_type": "text",
+    "file_path": null,
+    "file_title": null,
+    "approved_at": "2026-06-27T17:50:43.094170Z",
+    "approved_by": "slack_reaction:U0BDGFXLXMG",
+    "slack_message_ts": "1782578428.806569"
+  }
+}

@@ -49,15 +49,18 @@ cd carousel-routine && npm install
 │  ├── Carousel: 7 slides → PNG → PDF                  │
 │  └── Infographic: HTML → PNG screenshot               │
 ├─────────────────────────────────────────────────────┤
-│  PHASE 4: SLACK DELIVERY                             │
-│  ├── All 11 post texts to Slack                       │
-│  ├── Carousel PDF upload                              │
-│  └── Infographic PNG upload                           │
+│  PHASE 4: SLACK DELIVERY + APPROVAL                  │
+│  ├── All 16 post texts + files to Slack               │
+│  ├── Each post gets: Post ID, ✅/❌/🔄 markers         │
+│  ├── Manual review: add ✅ reaction to approve         │
+│  ├── slak_approval_monitor.py watches for reactions    │
+│  └── approval_publish_gate.py: only approved → publish │
 ├─────────────────────────────────────────────────────┤
-│  PHASE 5: LINKEDIN SCHEDULING                        │
+│  PHASE 5: LINKEDIN SCHEDULING (GATED)                │
 │  ├── Launch agent-browser with LinkedIn session       │
-│  ├── Run schedule_all_posts.cjs                       │
-│  └── 11 posts → 3 days × 4 posts/day                 │
+│  ├── Run schedule_with_approval.cjs (checks approval)  │
+│  ├── ✅ Approved → scheduled │ ❌ Rejected → skipped   │
+│  └── 11 posts → 3 days × 4 posts/day                  │
 └─────────────────────────────────────────────────────┘
 ```
 
@@ -122,12 +125,18 @@ cd carousel-routine && npm install
 | `cap_infographic_today.cjs` | Screenshot infographic HTML → 1080×1080 PNG |
 | `cap_infographic.cjs` | Alternative screenshot script |
 
-### 📨 Slack Delivery
+### 📨 Slack Delivery & Approval Workflow
 | File | Purpose |
 |------|---------|
-| `send_to_slack.py` | Master Slack delivery: texts + PDF + PNG |
+| `send_to_slack.py` | Master Slack delivery (approval-enabled) |
 | `send_slack_message.py` | Simple text message to Slack |
-| `check_slack_for_posts.py` | Check Slack for previously sent posts |
+| `check_slack_for_posts.py` | Checks Slack for approved posts (approval-gated) |
+| `approval_lib.py` | **NEW** — Approval system core library (post IDs, state mgmt, Slack API helpers) |
+| `slack_approval_monitor.py` | **NEW** — Monitors #linkedin-content for ✅/❌/🔄 reactions |
+| `slack_approval_handler.py` | **NEW** — Interactive UX: slash commands, buttons, bulk approve/reject |
+| `approval_publish_gate.py` | **NEW** — Publishing gate: only approved posts pass through to LinkedIn |
+| `setup_approval_workflow.py` | **NEW** — One-time setup: validates token, creates data files, sends test |
+| `convert_to_approval_workflow.py` | **NEW** — Migrates existing delivery scripts to use approval markers |
 
 ### 📅 LinkedIn Scheduling
 | File | Purpose |
@@ -135,6 +144,7 @@ cd carousel-routine && npm install
 | `schedule_all_posts.cjs` | Schedule ALL 11 posts (4/day × 3 days) |
 | `schedule_four_posts.cjs` | Schedule 4 Reddit-based posts only |
 | `schedule_other_posts.cjs` | Schedule remaining AI news posts |
+| `schedule_with_approval.cjs` | **NEW** — Approval-gated scheduler wrapper (only approved posts scheduled) |
 | `delete_all_scheduled.cjs` | Delete all scheduled posts |
 | `edit_scheduled_posts.cjs` | Edit existing scheduled posts |
 | `verify_scheduled_posts.cjs` | Verify scheduled posts are correct |
@@ -145,10 +155,13 @@ cd carousel-routine && npm install
 |------|---------|
 | `carousel-hook-log.json` | History of carousel hook styles (for rotation) |
 | `infographic-run-log.json` | History of infographic topics (for deduplication) |
-| `performance-run-log.json` | History of performance-engine subjects (contrarian belief, poll, etc.) so they don't repeat day to day |
+| `performance-run-log.json` | History of performance-engine subjects |
 | `scheduled_history.json` | History of scheduled posts |
 | `reddit_data.json` | Latest fetched Reddit data |
 | `ai_news_data.json` | Latest fetched AI news data |
+| `approval_data.json` | **NEW** — Approval system state (pending/approved/rejected/published) |
+| `approval_audit.jsonl` | **NEW** — Append-only audit trail of all approval actions |
+| `published_posts.json` | **NEW** — Log of successfully published posts |
 
 ---
 
@@ -193,19 +206,71 @@ node compile_pdf.js
 node cap_infographic_today.cjs
 ```
 
-### Phase 4: Send to Slack
+### Phase 4: Send to Slack (with Approval Workflow)
 ```bash
+# Content is posted to Slack with approval markers
 python3 send_to_slack.py
 ```
 
-### Phase 5: Schedule on LinkedIn
+Each post now includes:
+- A unique **Post ID** (`post_20260614_123456_abc123`)
+- ✅ Approve / ❌ Reject / 🔄 Revise reaction markers
+- Approval tracking in `approval_data.json`
+
+### Phase 4b: Approve Content
+
+**In Slack (#linkedin-content channel):**
+- React with ✅ to approve a post
+- React with ❌ to reject
+- React with 🔄 to request revision
+
+**From command line:**
+```bash
+# Approve a specific post
+python slack_approval_handler.py approve <post_id>
+
+# Reject a post
+python slack_approval_handler.py reject <post_id>
+
+# Approve ALL pending posts at once
+python slack_approval_handler.py approve-all
+
+# Check pending posts
+python slack_approval_handler.py pending
+```
+
+**Monitor for approvals continuously:**
+```bash
+# Run in background terminal
+python slack_approval_monitor.py --watch
+
+# Or scan once
+python slack_approval_monitor.py --scan
+```
+
+### Phase 4c: Check Publishing Queue
+```bash
+# See all approved posts ready
+python approval_publish_gate.py --queue
+
+# Export as JSON
+python approval_publish_gate.py --export > approved_posts.json
+```
+
+### Phase 5: Schedule on LinkedIn (Approval-Gated)
 ```bash
 # 1. Launch browser with LinkedIn session
 agent-browser --session-name linkedin_bot open https://www.linkedin.com/feed/
 
-# 2. Run the scheduling script (schedules all 11 posts)
-node schedule_all_posts.cjs
+# 2. Run approval-gated scheduler (only approved posts pass through)
+node schedule_with_approval.cjs
 ```
+
+The approval gate checks each post before scheduling:
+- ✅ Approved → scheduled
+- ❌ Rejected → skipped
+- ⏳ Pending → skipped with warning
+- 📢 Already published → skipped (idempotent)
 
 ---
 
@@ -249,5 +314,3 @@ The `sample-outputs/` folder contains a complete set from the June 12, 2026 run:
 - `linkedin_posts_20260612.html` — Carousel HTML slides
 - `linkedin_posts_20260612.pdf` — Compiled carousel PDF
 - `linkedin-infographic-20260612.png` — Infographic PNG
-#   L i n k e d i n _ A u t o m a t i o n 2  
- 

@@ -5,7 +5,7 @@ const path = require('path');
 (async () => {
   console.log('Starting infographic screenshot using puppeteer-core (setContent)...');
   const browser = await puppeteer.launch({
-    executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
     headless: true,
     args: [
       '--no-sandbox',

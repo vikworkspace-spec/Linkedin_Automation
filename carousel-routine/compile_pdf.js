@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 const path = require('path');
 const fs = require('fs');
+const { pathToFileURL } = require('url');
 
 (async () => {
   try {
@@ -102,6 +103,7 @@ const fs = require('fs');
     // Launch browser and print to PDF
     console.log("1. Launching browser...");
     const browser = await puppeteer.launch({
+      executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
       headless: 'shell',
       args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
@@ -124,11 +126,11 @@ const fs = require('fs');
     });
 
     console.log("5. Navigating to combined HTML...");
-    await page.goto('file://' + encodeURI(combinedHtmlPath), { waitUntil: 'domcontentloaded', timeout: 0 });
+    await page.goto(pathToFileURL(combinedHtmlPath).href, { waitUntil: 'domcontentloaded', timeout: 0 });
     console.log("6. Waiting 2s...");
     await new Promise(r => setTimeout(r, 2000));
 
-    const outPdfPath = path.join(outDir, 'startup-strategy-carousel.pdf');
+    const outPdfPath = path.join(__dirname, '..', 'carousel_20260627.pdf');
     
     console.log("7. Printing PDF...");
     await page.pdf({

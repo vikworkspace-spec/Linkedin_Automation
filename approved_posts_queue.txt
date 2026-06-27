@@ -1,0 +1,27 @@
+APPROVED POSTS QUEUE — 2026-06-27
+============================================================
+
+--- post_20260627_post_3_2b101e ---
+Type: text
+Approved: 2026-06-27T17:50:43.077158Z by slack_reaction:U0BDGFXLXMG
+
+Jeff Bezos is betting 12 billion dollars on a robot that can think like a human engineer.
+Prometheus is not building a machine that merely moves boxes or sorts mail. Most industrial robots follow a fixed script. They fail the moment a bolt is loose or a wire is misplaced.
+Prometheus aims to build a general engineer. This is a system that can troubleshoot a broken engine, diagnose a mechanical failure, and repair a physical system without a human guiding every move.
+Law firms managing large real estate portfolios or industrial clients will see this shift first. Automated maintenance and autonomous repair systems reduce the need for onsite technicians and lower operational overhead for asset managers.
+The legal implications for liability and professional negligence will shift. When a robot performs a structural repair that fails, the dispute moves from human error to product liability and algorithmic negligence.
+Which practice area will handle the liability claims when autonomous robots begin managing physical infrastructure?
+Follow for daily legal staffing insights.
+
+--- post_20260627_post_7_e8e3fb ---
+Type: text
+Approved: 2026-06-27T17:50:43.094170Z by slack_reaction:U0BDGFXLXMG
+
+Law firms cannot risk public errors caused by AI making up facts.
+One wrong citation in a court filing or a client report creates a reputation crisis.
+Prevent this by using a two agent audit loop. 
+First, have one AI draft the report. Then, feed that draft and the original source documents into a second AI with a specific instruction: "Identify every claim in the draft that is not explicitly supported by the source text and flag it as an error."
+This forces the AI to act as a critic. It catches false claims before a partner sees them.
+Which practice area currently faces the highest risk from AI errors?
+Follow for daily legal staffing insights.
+

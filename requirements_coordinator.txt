@@ -1,0 +1,17 @@
+# AI Automation Coordinator & LinkedIn Publisher Dependencies
+# Install with: pip install -r requirements_coordinator.txt
+
+# No external dependencies required!
+# This system uses only Python standard library:
+#   - http.server (for the Slack Events API server)
+#   - json, os, sys, time, datetime
+#   - urllib.request (for Slack API and LinkedIn API calls)
+#   - hmac, hashlib (for Slack request signature verification)
+#   - re (for post ID extraction)
+#   - subprocess (for agent-browser fallback)
+
+# Optional (if using Flask instead of built-in http.server):
+# flask>=2.0.0
+
+# Optional (for better HTTP performance):
+# requests>=2.25.0

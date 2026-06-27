@@ -1,9 +1,27 @@
 ﻿import os
 import json
 import urllib.request
+import urllib.parse
 import urllib.error
 import datetime
 import time
+
+# ── Approval Workflow Gate ─────────────────────────────────
+try:
+    from approval_lib import (
+        ApprovalManager,
+        get_approved_posts_for_publishing,
+        verify_post_for_scheduling,
+        mark_post_as_published,
+        generate_post_id,
+        export_approved_posts,
+    )
+    from approval_publish_gate import export_approved_posts as export_approved
+    APPROVAL_ENABLED = True
+except ImportError as e:
+    APPROVAL_ENABLED = False
+    print(json.dumps({"warning": f"Approval system not available: {e}"}))
+# ───────────────────────────────────────────────────────────
 
 # Read token from .env
 slack_token = None
@@ -61,7 +79,7 @@ try:
     
     messages = history.get("messages", [])
     
-    # We are looking for messages with files in the last 24 hours
+        # We are looking for messages with files in the last 24 hours
     # Specifically: the text file, the carousel PDF, and the infographic PNG.
     text_file_info = None
     carousel_file_info = None
@@ -84,38 +102,108 @@ try:
     if not text_file_info:
         print(json.dumps({"status": "no_new_posts"}))
         exit(0)
-        
-    post_id = text_file_info["id"]
-    if post_id in scheduled_history:
-        print(json.dumps({"status": "no_new_posts", "reason": "already_scheduled"}))
-        exit(0)
-        
-    # Download them
-    txt_path = os.path.join(download_dir, text_file_info["name"])
-    download_file(text_file_info["url_private_download"], txt_path)
     
-    files_downloaded = {"text": txt_path}
+    # ── APPROVAL GATE ─────────────────────────────────────────────
+    # Instead of checking scheduled_history, check the approval system.
+    # Only proceed if the content has been approved.
+    #
+    # There are two ways approved content reaches this gate:
+    #   1. Via the approval system (approval_data.json) after Slack review
+    #   2. Legacy mode: if approval system isn't set up yet
+    # ────────────────────────────────────────────────────────────────
     
-    if carousel_file_info:
-        pdf_path = os.path.join(download_dir, carousel_file_info["name"])
-        download_file(carousel_file_info["url_private_download"], pdf_path)
-        files_downloaded["carousel_pdf"] = pdf_path
+    if APPROVAL_ENABLED:
+        # Check the approved posts queue
+        approved_posts = export_approved()
         
-    if infographic_file_info:
-        png_path = os.path.join(download_dir, infographic_file_info["name"])
-        download_file(infographic_file_info["url_private_download"], png_path)
-        files_downloaded["infographic_png"] = png_path
+        if not approved_posts:
+            print(json.dumps({
+                "status": "pending_approval",
+                "message": "No approved posts found. Use ✅ reaction in #linkedin-content or run: python slack_approval_handler.py approve-all"
+            }))
+            exit(0)
         
-    # Update history
-    scheduled_history.append(post_id)
-    with open(history_file, "w") as f:
-        json.dump(scheduled_history, f)
+        # Find the first approved post with file info matching our criteria
+        approved_file_info = None
+        for pid, rec in approved_posts.items():
+            if rec.get("file_path") and rec.get("post_type") in ("carousel", "infographic"):
+                approved_file_info = rec
+                break
         
-    print(json.dumps({
-        "status": "success",
-        "files": files_downloaded,
-        "message": "Files downloaded successfully. Proceed to invoke browser agent to schedule."
-    }))
+        if not approved_file_info:
+            print(json.dumps({
+                "status": "pending_approval",
+                "message": "Approved posts exist, but none with downloadable files for scheduling"
+            }))
+            exit(0)
+        
+        approved_pid = approved_file_info["post_id"]
+        
+        # Verify approval still valid
+        ok, detail = verify_post_for_scheduling(approved_pid)
+        if not ok:
+            print(json.dumps({
+                "status": "approval_expired",
+                "reason": detail,
+                "message": "Approval has expired or been revoked. Re-approve the post."
+            }))
+            exit(0)
+        
+        # Check if already published (idempotency)
+        if approved_pid in scheduled_history:
+            print(json.dumps({"status": "no_new_posts", "reason": "already_scheduled"}))
+            exit(0)
+        
+        # Use the approved file directly
+        txt_path = approved_file_info.get("file_path", "")
+        
+        files_downloaded = {"text": txt_path, "approved": True, "post_id": approved_pid}
+        
+        # Update history
+        scheduled_history.append(approved_pid)
+        with open(history_file, "w") as f:
+            json.dump(scheduled_history, f)
+        
+        # Mark as publishing in progress
+        print(json.dumps({
+            "status": "success",
+            "files": files_downloaded,
+            "post_id": approved_pid,
+            "message": f"Approved post {approved_pid} ready for scheduling. After successful scheduling, run: python approval_publish_gate.py --published {approved_pid}"
+        }))
+    else:
+        # Legacy mode: no approval system
+        post_id = text_file_info["id"]
+        if post_id in scheduled_history:
+            print(json.dumps({"status": "no_new_posts", "reason": "already_scheduled"}))
+            exit(0)
+            
+        # Download them
+        txt_path = os.path.join(download_dir, text_file_info["name"])
+        download_file(text_file_info["url_private_download"], txt_path)
+        
+        files_downloaded = {"text": txt_path}
+        
+        if carousel_file_info:
+            pdf_path = os.path.join(download_dir, carousel_file_info["name"])
+            download_file(carousel_file_info["url_private_download"], pdf_path)
+            files_downloaded["carousel_pdf"] = pdf_path
+            
+        if infographic_file_info:
+            png_path = os.path.join(download_dir, infographic_file_info["name"])
+            download_file(infographic_file_info["url_private_download"], png_path)
+            files_downloaded["infographic_png"] = png_path
+            
+        # Update history
+        scheduled_history.append(post_id)
+        with open(history_file, "w") as f:
+            json.dump(scheduled_history, f)
+            
+        print(json.dumps({
+            "status": "success",
+            "files": files_downloaded,
+            "message": "Files downloaded successfully. Proceed to invoke browser agent to schedule."
+        }))
 
 except Exception as e:
     print(json.dumps({"error": str(e)}))
