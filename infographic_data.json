@@ -1,0 +1,37 @@
+{
+  "title_main": "The Luxury of Focus",
+  "title_span": "The Fragmentation Crisis",
+  "subtitle": "How constant digital interruptions are pushing actual work to the margins and forcing early starts.",
+  "badge": "\ud83d\udcc9 PRODUCTIVITY GAP",
+  "date_label": "Microsoft Work Trend Index",
+  "takeaway_num": "275",
+  "takeaway_text": "average daily interruptions per employee, creating a fragmented workflow where deep work becomes nearly impossible.",
+  "source": "Source: Microsoft Work Trend Index | @founderswing",
+  "bars": [
+    {
+      "label": "Daily Interruptions (Total Breaks) - 275",
+      "value": "95%",
+      "color": "#E63946"
+    },
+    {
+      "label": "Daily Messages Received - 153",
+      "value": "72%",
+      "color": "#D9785B"
+    },
+    {
+      "label": "Daily Emails Received - 117",
+      "value": "58%",
+      "color": "#E8A33D"
+    },
+    {
+      "label": "Online by 6 AM for Quiet Time",
+      "value": "42%",
+      "color": "#5E6AD2"
+    },
+    {
+      "label": "Time Between Interruptions - 2 Mins",
+      "value": "30%",
+      "color": "#5A5A5A"
+    }
+  ]
+}
