@@ -4,59 +4,59 @@
     "HOOK_PART_1": "From ignored student",
     "HOOK_PART_2": "to panel speaker",
     "HOOK_EMPHASIS": "PANEL SPEAKER",
-    "SUBTITLE": "The slow road to building true credibility. A story of moving from the shadows of a dorm room to the center of innovation."
+    "SUBTITLE": "The transition from being dismissed in a dorm room to being invited by industry leaders. This is the actual process of building credibility."
   },
   "2": {
     "PILL_LABEL": "THE START",
     "EYEBROW": "THE BEGINNING",
-    "HEADLINE_PART_1": "A cramped dorm room,",
-    "HEADLINE_PART_2": "one laptop,",
-    "HEADLINE_EMPHASIS": "FAILED IDEAS",
-    "SUBHEAD": "Where the ambition was high but the results were missing.",
-    "BODY_TEXT": "It started with a lot of trial and error. One student, one machine, and a relentless drive to build something from nothing."
+    "HEADLINE_PART_1": "A business born in a",
+    "HEADLINE_PART_2": "dorm room",
+    "HEADLINE_EMPHASIS": "DORM ROOM",
+    "SUBHEAD": "Most professors ignored the project.",
+    "BODY_TEXT": "Starting from zero, where the vision is only clear to the founder and invisible to the experts."
   },
   "3": {
     "HEADER_LABEL": "THE STRUGGLE",
     "HUGE_STAT": "0%",
-    "CIRCLE_WORD_1": "Silence",
-    "CIRCLE_WORD_2": "Ignored",
+    "CIRCLE_WORD_1": "No",
+    "CIRCLE_WORD_2": "Listen",
     "HEADLINE_PART_1": "Pitch competitions",
-    "HEADLINE_PART_2": "ended in silence",
-    "HEADLINE_EMPHASIS": "SILENCE",
-    "BODY_TEXT": "Professors looked past the ambition. The world wasn't listening because there was nothing yet to hear."
+    "HEADLINE_PART_2": "ending in losses",
+    "HEADLINE_EMPHASIS": "LOSSES",
+    "BODY_TEXT": "No investors listen. No doors open. The gap between the dream and reality feels insurmountable."
   },
   "4": {
     "PILL_LABEL": "THE GRIND",
-    "EYEBROW": "THE GAP",
+    "EYEBROW": "THE DARK YEARS",
     "HEADLINE_PART_1": "Six years of",
     "HEADLINE_PART_2": "quiet work",
     "HEADLINE_EMPHASIS": "QUIET WORK",
-    "SUBHEAD": "No applause, just late nights.",
-    "BODY_TEXT": "The gap between an idea and a reality is filled with small wins and invisible progress that no one cheers for."
+    "SUBHEAD": "Cold calls and manual data entry.",
+    "BODY_TEXT": "The unsexy phase. No applause, no funding, just the relentless repetition of manual labor and execution."
   },
   "5": {
-    "HEADER_LABEL": "THE SECRET",
-    "HUGE_STAT": "Fix",
-    "CIRCLE_WORD_1": "Boring",
-    "CIRCLE_WORD_2": "Problems",
-    "HEADLINE_PART_1": "Success comes from",
-    "HEADLINE_PART_2": "fixing boring problems",
-    "HEADLINE_EMPHASIS": "BORING PROBLEMS",
-    "BODY_TEXT": "Authority isn't claimed; it's earned. By solving the problems others find too tedious, the work eventually speaks for itself."
+    "HEADER_LABEL": "THE GROWTH",
+    "HUGE_STAT": "Slow",
+    "CIRCLE_WORD_1": "Grit",
+    "CIRCLE_WORD_2": "Scale",
+    "HEADLINE_PART_1": "Results build",
+    "HEADLINE_PART_2": "through repetition",
+    "HEADLINE_EMPHASIS": "REPETITION",
+    "BODY_TEXT": "Growth doesn't happen overnight. It's the compound effect of grit and consistency when no one is watching."
   },
   "6": {
     "PILL_LABEL": "THE RESULT",
-    "EYEBROW": "THE RETURN",
-    "HEADLINE_PART_1": "Now the VCs",
-    "HEADLINE_PART_2": "are the ones listening",
-    "HEADLINE_EMPHASIS": "LISTENING",
-    "SUBHEAD": "From the back of the class to the center of the stage.",
-    "BODY_TEXT": "The same student once ignored now sits on innovation panels. The recognition is simply a lagging indicator of years of work."
+    "EYEBROW": "THE RECOGNITION",
+    "HEADLINE_PART_1": "The VC panel is the",
+    "HEADLINE_PART_2": "result of work",
+    "HEADLINE_EMPHASIS": "WORK",
+    "SUBHEAD": "Industry leaders now invite the founder to speak.",
+    "BODY_TEXT": "Credibility is not a title you claim; it is a result you earn. The seat at the table is won through execution."
   },
   "7": {
-    "HEADLINE_PART_1": "Master the loop",
-    "HEADLINE_PART_2": "and build your authority",
-    "HEADLINE_EMPHASIS": "BUILD",
-    "SUBHEAD": "Follow for more posts on startup loops and building true credibility."
+    "HEADLINE_PART_1": "Master the",
+    "HEADLINE_PART_2": "startup loops",
+    "HEADLINE_EMPHASIS": "LOOPS",
+    "SUBHEAD": "Follow for more posts on startup loops and the reality of building in public."
   }
 }

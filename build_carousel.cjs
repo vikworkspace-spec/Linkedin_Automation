@@ -5,7 +5,7 @@ const { execSync } = require('child_process');
 
 (async () => {
     // Generate HTML first
-    execSync('python3 generate_carousel_today.py');
+    execSync('py generate_carousel_today.py');
 
     const d = new Date().toISOString().slice(0, 10);
     const outDir = `./carousel-routine/output/${d}/carousel-branded`;

@@ -1,36 +1,36 @@
 {
-  "title_main": "The Luxury of Focus",
-  "title_span": "The Fragmentation Crisis",
-  "subtitle": "How constant digital interruptions are pushing actual work to the margins and forcing early starts.",
-  "badge": "\ud83d\udcc9 PRODUCTIVITY GAP",
-  "date_label": "Microsoft Work Trend Index",
-  "takeaway_num": "275",
-  "takeaway_text": "average daily interruptions per employee, creating a fragmented workflow where deep work becomes nearly impossible.",
-  "source": "Source: Microsoft Work Trend Index | @founderswing",
+  "title_main": "The Cost of an",
+  "title_span": "Unfilled Legal Position",
+  "subtitle": "Every open attorney seat bleeds billable revenue, increases burnout on existing staff, and compounds client service risk.",
+  "badge": "📊 LEGAL STAFFING DATA",
+  "date_label": "2025-2026 Legal Market Survey",
+  "takeaway_num": "$207K",
+  "takeaway_text": "average revenue lost per unfilled associate position over a 97-day vacancy, based on 1,800 billable hours at midsize firm rates.",
+  "source": "Source: Thomson Reuters Legal Market Report | @zetabotai",
   "bars": [
     {
-      "label": "Daily Interruptions (Total Breaks) - 275",
-      "value": "95%",
+      "label": "Average Days to Fill Associate Role - 97",
+      "value": "97%",
       "color": "#E63946"
     },
     {
-      "label": "Daily Messages Received - 153",
-      "value": "72%",
+      "label": "Partners Absorbing Extra Casework - 78%",
+      "value": "78%",
       "color": "#D9785B"
     },
     {
-      "label": "Daily Emails Received - 117",
-      "value": "58%",
+      "label": "Candidates Lost to Faster Firms - 62%",
+      "value": "62%",
       "color": "#E8A33D"
     },
     {
-      "label": "Online by 6 AM for Quiet Time",
-      "value": "42%",
+      "label": "Firms Using Staffing Agencies as Backup - 54%",
+      "value": "54%",
       "color": "#5E6AD2"
     },
     {
-      "label": "Time Between Interruptions - 2 Mins",
-      "value": "30%",
+      "label": "Associates Citing Workload in Exit Interviews - 41%",
+      "value": "41%",
       "color": "#5A5A5A"
     }
   ]

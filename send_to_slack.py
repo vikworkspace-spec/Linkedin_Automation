@@ -136,7 +136,7 @@ posts = {}
 current_key = None
 current_content = []
 
-with open(f"linkedin_posts_{date_compact}.txt") as f:
+with open(f"linkedin_posts_{date_compact}.txt", encoding="utf-8") as f:
     for line in f:
         if line.startswith("=================================================="):
             continue

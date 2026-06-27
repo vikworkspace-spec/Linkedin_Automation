@@ -11,7 +11,11 @@ ctx = ssl.create_default_context()
 ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
 
-subreddits = ["entrepreneur", "startups", "artificial", "SideProject", "ChatGPT", "passive_income"]
+subreddits = [
+    "LawFirm", "lawyers", "LegalAdviceOffTopic", "lawschool", 
+    "biglaw", "paralegal", "recruiting", "humanresources", 
+    "legaltech", "careerguidance"
+]
 headers = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 }

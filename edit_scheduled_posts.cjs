@@ -86,7 +86,7 @@ Which client concentration percentage makes you start looking for new deals?
 
 ♻️ Repost to save a freelancer from the dependency trap
 
-Follow @founderswing for daily frameworks`,
+Follow @zetabotai for daily frameworks`,
 
   // Post 2 (Infographic - Sun June 7, 2026 at 11:30 PM)
   infographic: `The organic reach numbers that explain why social media feels harder.
@@ -106,7 +106,7 @@ Which platform's organic reach rate surprised you the most?
 
 ♻️ Repost to help a founder bench their social metrics correctly
 
-Follow @founderswing for daily data drops`,
+Follow @zetabotai for daily data drops`,
 
   // Post 3 (Text-only - Mon June 8, 2026 at 2:30 AM)
   creditMemos: `Credit memos used to take days. S&P Global just made them a morning task.

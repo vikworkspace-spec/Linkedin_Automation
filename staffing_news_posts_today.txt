@@ -1,0 +1,85 @@
+==================================================
+1. POST 1
+==================================================
+Headline: 90 minutes to first submission: what StaffRight Legal's new sourcing agent means for contract attorney desks
+
+StaffRight Legal just launched an AI agent that pulls contract attorney candidates from 150+ legal job platforms and bar association directories, ranks them, and delivers a submission-ready shortlist.
+
+Time-to-first-submission drops from 48 hours to 90 minutes.
+
+That's not a small efficiency gain. That's the difference between winning a document review matter and losing it to the staffing firm that called back first. Law firms on tight litigation timelines don't wait. If your competitors are reaching the same candidates faster, your placement volume takes a direct hit, even when your candidate quality is equal.
+
+The ranking layer matters too. The agent scores candidates against matter-specific criteria before a recruiter ever opens a resume. So recruiters spend their first hour on finalist conversations, not inbox triage. For firms running lean desks of 2-3 recruiters, that frees real capacity for relationship development and margin protection on bill rate negotiations.
+
+Firms that tested the tool in beta reportedly cut their sourcing overhead by 30-40% on high-volume contract roles. That's meaningful on a business model where margins are already compressed.
+
+The critical question for any shop evaluating this: does the ranking output align with how your clients actually define "qualified," or does it optimize for credential proxies that don't predict performance on the specific matter type?
+
+Worth a demo. Link in comments.
+
+What's the longest your firm currently takes from intake call to first candidate submission on a contract attorney request?
+
+Tool featured: StaffRight Legal AI Sourcing Agent
+Source: StaffRight Legal product announcement
+Archetype: Tool Spotlight | Emotion: WOW
+Why this works: Anchors the tool's value in a concrete placement consequence (winning the matter vs. losing it), then connects the efficiency gain to recruiter capacity and margin, grounding excitement in operational reality.
+Word count: 238 words
+
+==================================================
+2. POST 2
+==================================================
+Headline: 5 things that moved in legal staffing this week
+
+A lot happened this week. Here's the short version for firm owners and talent acquisition leaders who need to stay current without reading 40 trade alerts.
+
+**1. Lateral Link acquires a regional contract staffing book**
+Consolidation in legal staffing continues. Acquiring an established contract book means inheriting client relationships and active candidates simultaneously. Firms without a succession plan are becoming acquisition targets, not acquirers.
+
+**2. New Am Law 100 compensation benchmarks dropped**
+Associate salary data is reshaping what contract attorneys expect in bill rates. When market compensation rises, your markup math changes. Firms that haven't repriced their contract tiers in 12 months are quietly losing margin.
+
+**3. A mid-market legal temp platform launched with flat-fee pricing**
+Flat-fee models put direct pressure on percentage-based markup firms. The threat isn't the platform itself; it's that law firms will use it as a negotiation anchor in your next RFP conversation.
+
+**4. Bar verification compliance requirements tightened in two states**
+If your compliance workflow still relies on manual bar status checks, this week was a reminder of how fast that becomes a liability. Automated verification tools are no longer optional infrastructure.
+
+**5. Big-4 advisory firms are entering legal project staffing more aggressively**
+They're not beating boutique staffing firms on speed or candidate relationships. But they are winning RFPs with bundled pricing. Know where you're vulnerable.
+
+Which of these five is hitting your firm hardest right now?
+
+Tools/stories featured: Lateral Link, Am Law compensation benchmarks, flat-fee legal temp platform launch, state bar compliance updates, Big-4 advisory staffing expansion
+Source: Legal staffing trade reporting, Am Law compensation survey releases, state bar association compliance bulletins
+Archetype: Weekly Roundup | Emotion: OHHH
+Why this works: Delivers five distinct news items with a sharp "so what" for each, maintains fast pacing through short paragraphs, and closes with a question that invites professional self-diagnosis rather than generic commentary.
+Word count: 272 words
+
+==================================================
+3. POST 3
+==================================================
+Headline: How top legal staffing firms are pre-building candidate benches before the law firm even posts the role
+
+The firms winning the most legal placement volume right now are not reacting to job orders. They're anticipating them.
+
+Here's how the operational model actually works.
+
+Smart firms track leading indicators: court docket surges in specific jurisdictions, merger filings, regulatory enforcement upticks in sectors like financial services or healthcare, and lateral partner movement at Am Law firms. Each of those signals predicts hiring demand 30 to 90 days before a client picks up the phone.
+
+When demand signals appear, the firm pre-sources. A bench of 8 to 12 screened, conflict-cleared contract attorneys sits ready in the CRM, tagged to the matter type. When the call comes in, time-to-fill collapses from days to hours.
+
+The ROI math is direct. A firm that fills a 10-attorney document review matter at a $65 bill rate, 40 hours per week, for 8 weeks generates roughly $208,000 in billings. If pre-building the bench means winning that matter instead of finishing second, the sourcing investment pays back many times over.
+
+AI-powered candidate matching tools accelerate the pre-build process by flagging relevant candidates from your existing database based on practice area tags, experience depth, and availability windows. That turns bench-building from a manual research project into a standing workflow.
+
+One honest limitation: these tools match on structured data. Judgment calls about a candidate's temperament on a high-pressure matter, or how they'll perform under a demanding supervising partner, still require recruiter experience that no tool currently replicates.
+
+The pre-build strategy works. The technology supports it. But the human read still closes the placement.
+
+Which demand signals does your firm currently track to anticipate hiring needs before the client calls?
+
+Tools/stories featured: AI-powered legal CRM candidate matching, court docket monitoring, regulatory enforcement trend analysis
+Source: Legal staffing firm operational benchmarking, Am Law market data, legal recruitment strategy reporting
+Archetype: Plain English Breakdown | Emotion: OHHH
+Why this works: Walks through a concrete operational strategy with ROI math grounded in real billing numbers, explains the technology's role without overstating it, and includes a specific honest limitation that builds credibility with sophisticated readers.
+Word count: 299 words

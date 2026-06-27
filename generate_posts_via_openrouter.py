@@ -104,10 +104,10 @@ for i, item in enumerate(ai_news):
     ai_news_context += f"News {i+1} [Source: {item['source']}]:\nTitle: {item['title']}\nDescription: {item['description'][:400]}...\nURL: {item['url']}\nDate: {item['pubDate']}\n---\n"
 
 system_prompt = """
-You are Prithal Bhardwaj's AI copywriter and content orchestrator. Write a daily LinkedIn batch of exactly 11 posts (Collaborative Article, Poll, Carousel caption & slides, Infographic caption, and 7 AI news posts) based on today's feeds.
+You are Vikrant Upadhyay's AI copywriter and content orchestrator. Write a daily LinkedIn batch of exactly 11 posts (Collaborative Article, Poll, Carousel caption & slides, Infographic caption, and 7 AI news posts) based on today's feeds.
 
 WRITING RULES:
-1. Third-person observer voice, no "I" or "my" or "we" statements. (Except for CTA/Footer follow @founderswing, etc. But the post prose must be third-person).
+1. Third-person observer voice, no "I" or "my" or "we" statements. (Except for CTA/Footer follow @zetabotai, etc. But the post prose must be third-person).
 2. Exciting but grounded tone. Excitement should feel earned. Use sentence fragments, casual contractions, or conversational pivots.
 3. No jargon: no LLM, parameters, tokens, inference, fine-tuning, multimodal, latency, hallucination, RAG, prompt engineering. Explain these concepts simply.
 4. No em-dashes anywhere. Use normal commas, semicolons, or periods instead.
@@ -141,9 +141,9 @@ CONTENT SELECTION RULES:
   - Post 5 (Post 1 in news list): Tool Spotlight (archetype: Tool Spotlight | emotion: WOW).
   - Post 6 (Post 2 in news list): Weekly Roundup summarizing 5 updates (archetype: Weekly Roundup | emotion: OHHH).
   - Post 7 (Post 3 in news list): Plain English Breakdown of an enterprise/complex announcement with 1 limitation/caveat (archetype: Plain English Breakdown | emotion: OHHH).
-  - Post 8 (Post 4 in news list): Unfair Advantage of a new tool. MUST naturally mention "FounderWing" (archetype: Unfair Advantage | emotion: WOW).
+  - Post 8 (Post 4 in news list): Unfair Advantage of a new tool. MUST naturally mention "Zetabot AI" (archetype: Unfair Advantage | emotion: WOW).
   - Post 9 (Post 5 in news list): Career/Income shift analysis with concrete action (archetype: Career/Income | emotion: AHA).
-  - Post 10 (Post 6 in news list): Hot Take/contrarian review of a fundraise or announcement. MUST naturally mention "FounderWing" (archetype: Hot Take | emotion: THINK).
+  - Post 10 (Post 6 in news list): Hot Take/contrarian review of a fundraise or announcement. MUST naturally mention "Zetabot AI" (archetype: Hot Take | emotion: THINK).
   - Post 11 (Post 7 in news list): Steal This prompt/workflow under 120 words (archetype: Steal This | emotion: WOW).
 
 OUTPUT FORMAT:
@@ -306,12 +306,12 @@ Please select one of the following formats instead: DONUT_BREAKDOWN, TIMELINE_SH
 BANNED INFOGRAPHIC TOPICS (DO NOT OVERLAP WITH THESE SUBJECTS FOR THE INFOGRAPHIC):
 {json.dumps(banned_infographic_topics, indent=2)}
 
-Write the 11 posts now. Remember to strictly apply all rules (third-person, no banned words, FounderWing mentions in Post 8 and Post 10).
+Write the 11 posts now. Remember to strictly apply all rules (third-person, no banned words, Zetabot AI mentions in Post 8 and Post 10).
 Ensure the Carousel and Infographic captions explicitly output their chosen styles/formats (e.g. Chosen style: [style] and Chosen format: [format]) and make sure they are NOT banned!
 """
 
 system_prompt_json = """
-You are Prithal Bhardwaj's AI visual content designer.
+You are Vikrant Upadhyay's AI visual content designer.
 Based on the 11 LinkedIn posts generated for today, you must generate the structured JSON configuration for the Carousel (Post 3) and the Infographic (Post 4).
 
 Format your output as a single valid JSON object. Do NOT wrap it in any markdown code block, and do NOT include any other text before or after the JSON.
@@ -387,7 +387,7 @@ Your JSON must strictly follow this structure:
     "date_label": "[Month Year Report]",
     "takeaway_num": "[Stat, e.g. 95%]",
     "takeaway_text": "[Summary insight sentence]",
-    "source": "Source: [Sources] | @founderswing",
+    "source": "Source: [Sources] | @zetabotai",
     "bars": [
       { "label": "[Row 1 Label]", "value": "95%", "color": "#E63946" },
       { "label": "[Row 2 Label]", "value": "80%", "color": "#D9785B" },

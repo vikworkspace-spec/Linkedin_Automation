@@ -22,7 +22,7 @@ if not openrouter_key:
     exit(1)
 
 system_prompt = """
-You are Prithal Bhardwaj's AI news content generator. Write the remaining 4 LinkedIn posts (Post 4, Post 5, Post 6, and Post 7) about the week's AI developments.
+You are Vikrant Upadhyay's AI news content generator. Write the remaining 4 LinkedIn posts (Post 4, Post 5, Post 6, and Post 7) about the week's AI developments.
 
 Apply the following style rules strictly:
 - Third-person observer voice, no "I" statements.
@@ -38,12 +38,12 @@ Apply the following style rules strictly:
 - No hashtags or maximum 1 at the very end.
 - Every post must end with a specific question (never "what do you think?").
 - Avoid banned words: game-changer, disruptive, hustle, grind, crush it, synergy, paradigm shift, thought leader, go viral, revolutionary, groundbreaking, unprecedented, cutting-edge, state-of-the-art, next-generation.
-- Include exactly 1 natural mention of "FounderWing" in Post 6 (Hot Take) and 1 in Post 4 (Unfair Advantage). Make it fit naturally.
+- Include exactly 1 natural mention of "Zetabot AI" in Post 6 (Hot Take) and 1 in Post 4 (Unfair Advantage). Make it fit naturally.
 
 Here are the news items of the week (June 1-4, 2026) to cover:
-- Post 4 (Unfair Advantage): S&P Global's Credit Memo Builder. Explain how analysts can build credit memos in minutes. Include natural FounderWing mention.
+- Post 4 (Unfair Advantage): S&P Global's Credit Memo Builder. Explain how analysts can build credit memos in minutes. Include natural Zetabot AI mention.
 - Post 5 (Career/Income): The transition from prompt engineers to Multi-Agent Squad Managers. Explain the new high-paying career opportunity of managing teams of agents. End with a concrete action, not "stay adaptable."
-- Post 6 (Hot Take): Anthropic's confidential S-1 IPO filing. Challenge the optimistic funding narrative; explain it as a cash-out before training cost squeeze. Include natural FounderWing mention.
+- Post 6 (Hot Take): Anthropic's confidential S-1 IPO filing. Challenge the optimistic funding narrative; explain it as a cash-out before training cost squeeze. Include natural Zetabot AI mention.
 - Post 7 (Steal This): Under 120 words. A specific agent squad prompt workflow worth copying.
 
 Structure the output EXACTLY like this:

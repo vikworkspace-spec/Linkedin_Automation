@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1080"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { width: 1080px; height: 1080px; overflow: hidden; background-color: #F8F7F3; color: #111111; font-family: 'Plus Jakarta Sans', sans-serif; position: relative; }
+  
+  .header { position: absolute; top: 60px; left: 70px; right: 70px; display: flex; justify-content: space-between; align-items: center; z-index: 10; }
+  .header-left { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #111111; }
+  .star-icon { width: 24px; height: 24px; }
+  .header-right { display: flex; align-items: center; gap: 15px; }
+  .fw-text { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 26px; color: #999999; }
+  .slide-badge { width: 44px; height: 44px; background-color: #5E6AD2; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-weight: 800; font-size: 16px; }
+
+  .content { position: absolute; top: 260px; left: 70px; right: 70px; z-index: 5; }
+  .headline { font-size: 85px; font-weight: 900; letter-spacing: -3px; line-height: 1.05; }
+  .headline em { font-family: 'Instrument Serif', serif; font-style: italic; color: #5E6AD2; font-weight: 400; letter-spacing: 0; padding-left: 5px; }
+
+  .bottom-area { position: absolute; bottom: 70px; left: 70px; right: 70px; display: flex; justify-content: space-between; align-items: center; z-index: 5; }
+  .s1-bottom { display: flex; gap: 40px; align-items: center; }
+  .s1-image { width: 340px; height: 340px; object-fit: cover; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+  .bottom-text { font-size: 28px; font-weight: 500; color: #333333; line-height: 1.4; max-width: 480px; }
+  .swipe { font-size: 14px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #111111; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-left">
+      <svg class="star-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z" fill="#5E6AD2"/><path d="M4.5 4.5L10.5 10.5M19.5 19.5L13.5 13.5M19.5 4.5L13.5 10.5M4.5 19.5L10.5 13.5" stroke="#5E6AD2" stroke-width="2"/></svg>
+      FOUNDER JOURNEY
+    </div>
+    <div class="header-right">
+      <div class="fw-text">founders wing / 2026</div>
+      <div class="slide-badge">01</div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="headline">From ignored student</div>
+    <div class="headline" style="margin-top: -10px;">to panel speaker <em>PANEL SPEAKER.</em></div>
+  </div>
+  <div class="bottom-area">
+    <div class="s1-bottom">
+      <img src="assets/hero-ui.png" class="s1-image" onerror="this.src='assets/interface.png'"/>
+      <div class="bottom-text">The transition from being dismissed in a dorm room to being invited by industry leaders. This is the actual process of building credibility.</div>
+    </div>
+    <div class="swipe">SWIPE &rarr;</div>
+  </div>
+</body>
+</html>

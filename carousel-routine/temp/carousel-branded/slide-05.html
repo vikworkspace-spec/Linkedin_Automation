@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1080"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { width: 1080px; height: 1080px; overflow: hidden; background-color: #F8F7F3; color: #111111; font-family: 'Plus Jakarta Sans', sans-serif; position: relative; }
+  
+  .header { position: absolute; top: 60px; left: 70px; right: 70px; display: flex; justify-content: space-between; align-items: center; z-index: 10; }
+  .header-left { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #111111; }
+  .header-right { display: flex; align-items: center; gap: 15px; }
+  .fw-text { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 26px; color: #999999; }
+  .slide-badge { width: 44px; height: 44px; background-color: #5E6AD2; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-weight: 800; font-size: 16px; }
+
+  .content { position: absolute; top: 300px; left: 70px; right: 70px; z-index: 5; }
+  .huge-number { font-size: 200px; font-weight: 900; letter-spacing: -8px; line-height: 0.9; margin-bottom: 10px; display: inline-block; }
+  
+  .badge-container { display: inline-flex; align-items: center; justify-content: center; vertical-align: top; margin-left: 20px; margin-top: 15px; }
+  .thick-circle { width: 150px; height: 150px; border: 12px solid #5E6AD2; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+  .circle-text { font-size: 24px; font-weight: 900; line-height: 1; }
+  .circle-sub { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 22px; color: #888; margin-top: 4px; }
+  
+  .headline.medium { font-size: 65px; font-weight: 900; letter-spacing: -2px; line-height: 1.05; }
+  .headline.medium em { font-family: 'Instrument Serif', serif; font-style: italic; color: #5E6AD2; font-weight: 400; padding-left: 5px; }
+
+  .bottom-area { position: absolute; bottom: 70px; left: 70px; right: 70px; display: flex; justify-content: space-between; align-items: flex-end; z-index: 5; }
+  .bottom-text { font-size: 26px; font-weight: 500; color: #333333; line-height: 1.4; max-width: 750px; }
+  .swipe { font-size: 14px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #111111; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-left">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z" fill="#5E6AD2"/><path d="M4.5 4.5L10.5 10.5M19.5 19.5L13.5 13.5M19.5 4.5L13.5 10.5M4.5 19.5L10.5 13.5" stroke="#5E6AD2" stroke-width="2"/></svg>
+      THE GROWTH
+    </div>
+    <div class="header-right">
+      <div class="fw-text">founders wing / 2026</div>
+      <div class="slide-badge">05</div>
+    </div>
+  </div>
+  <div class="content">
+    <div>
+      <div class="huge-number">Slow</div>
+      <div class="badge-container">
+        <div class="thick-circle">
+          <div class="circle-text">Grit</div>
+          <div class="circle-sub">Scale</div>
+        </div>
+      </div>
+    </div>
+    <div class="headline medium" style="margin-top: 20px;">Results build</div>
+    <div class="headline medium">through repetition <em>REPETITION.</em></div>
+  </div>
+  <div class="bottom-area">
+    <div class="bottom-text">Growth doesn't happen overnight. It's the compound effect of grit and consistency when no one is watching.</div>
+    <div class="swipe">SWIPE &rarr;</div>
+  </div>
+</body>
+</html>

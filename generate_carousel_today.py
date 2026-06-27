@@ -50,8 +50,8 @@ def ensure_valid_images():
 # Run asset verification first
 ensure_valid_images()
 
-skill_path = "/Users/prithal/.gemini/config/skills/branded-carousel/SKILL.md"
-with open(skill_path, "r") as f:
+skill_path = "./skills/branded-carousel/SKILL.md"
+with open(skill_path, "r", encoding="utf-8") as f:
     content = f.read()
 
 # Extract templates

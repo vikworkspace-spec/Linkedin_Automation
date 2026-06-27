@@ -52,7 +52,7 @@ def build(slide, accent, kicker):
     if slide.get("body"):
         inner += f'<div class="body">{slide["body"]}</div>'
     if slide.get("cta"):
-        bottom = '<div class="pill">follow @founderswing for daily <em>frameworks.</em></div>'
+        bottom = '<div class="pill">follow @zetabotai for daily <em>frameworks.</em></div>'
     else:
         bottom = '<div></div><div class="swipe">SWIPE &rarr;</div>'
     return PAGE.format(

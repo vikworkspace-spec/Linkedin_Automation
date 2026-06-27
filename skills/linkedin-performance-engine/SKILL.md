@@ -1,12 +1,12 @@
 ---
 name: linkedin-performance-engine
-description: Generates 5 LinkedIn posts modeled on @founderswing's OWN top-performing analytics — founder-psychology contrarian, loaded poll, AI-news-with-implications, story carousel, and data-visual-with-hook. Reads the live performance report each run, so the winning patterns update automatically as new analytics come in. This is the data-driven stream — every archetype here earned its place from real impression/engagement numbers, not theory.
+description: Generates 5 LinkedIn posts modeled on @zetabotai's OWN top-performing analytics — founder-psychology contrarian, loaded poll, AI-news-with-implications, story carousel, and data-visual-with-hook. Reads the live performance report each run, so the winning patterns update automatically as new analytics come in. This is the data-driven stream — every archetype here earned its place from real impression/engagement numbers, not theory.
 allowed-tools: WebFetch, WebSearch, Bash, Read, Write
 ---
 
 # LinkedIn Performance Engine
 
-You generate the **5 report-driven posts** for the daily Founders Wing batch. Unlike the other engines (which are built on general best-practice), every archetype here is reverse-engineered from **@founderswing's actual LinkedIn analytics**. The brief is simple: do more of exactly what already worked on this specific account.
+You generate the **5 report-driven posts** for the daily Founders Wing batch. Unlike the other engines (which are built on general best-practice), every archetype here is reverse-engineered from **@zetabotai's actual LinkedIn analytics**. The brief is simple: do more of exactly what already worked on this specific account.
 
 The five archetypes, in the report's proven priority order:
 
@@ -51,7 +51,7 @@ The hard formatting rules from `commands/linkedin-content.md` still apply to eve
 - Banned LinkedIn patterns apply ("No X. No Y. Just Z.", "It's not just X, it's Y", "And here's the kicker", etc.)
 - Specific numbers over adjectives.
 
-**Voice reconciliation:** Write in the declarative, observational @founderswing LinkedIn voice — the same voice the report's winning posts use ("Every founder wants to be CEO until they actually are"). This is third-person/observational and brand-signed, NOT the personal "I"-led Twitter voice in `voice-profile.md` (that profile is for Twitter). When in doubt, match the cadence of the WINNING_HOOKS verbatim examples.
+**Voice reconciliation:** Write in the declarative, observational @zetabotai LinkedIn voice — the same voice the report's winning posts use ("Every founder wants to be CEO until they actually are"). This is third-person/observational and brand-signed, NOT the personal "I"-led Twitter voice in `voice-profile.md` (that profile is for Twitter). When in doubt, match the cadence of the WINNING_HOOKS verbatim examples.
 
 ### 0C: Load deduplication state
 
@@ -137,7 +137,7 @@ Apply every rule from PHASE 0B. Each archetype's formula is lifted directly from
 
 [QUESTION — A pointed debate prompt. Not "what do you think?" — something they can answer in one line.]
 
-[CTA — "Follow @founderswing for more" OR "Repost to help a founder who needs to hear this."]
+[CTA — "Follow @zetabotai for more" OR "Repost to help a founder who needs to hear this."]
 ```
 
 **Voice note:** Blunt, declarative, professional but not corporate. One uncomfortable truth per post. No hedging. This is the format that earns comments — make the reader want to argue or confess.
@@ -193,7 +193,7 @@ Apply every rule from PHASE 0B. Each archetype's formula is lifted directly from
 
 [DEBATE QUESTION — invites a real position, not agreement.]
 
-[CTA — "Follow @founderswing for more" or save-prompt.]
+[CTA — "Follow @zetabotai for more" or save-prompt.]
 ```
 
 **Anti-pattern guard (mandatory):** Before finalizing, check this post against ANTI_PATTERNS. If it reads as "Company X announced Y" with no founder consequence, it is a plain relay — rewrite it or pick a different story. Every fact must carry a "so what for *you*."
@@ -257,7 +257,7 @@ Verify every post before output:
 - [ ] Contrarian belief ∉ USED_PERF_BELIEFS. Poll topic ∉ USED_PERF_POLLS. Dataset ∉ USED_INFOGRAPHIC_TOPICS.
 
 **Voice check:**
-- [ ] Declarative @founderswing voice, matches the cadence of the report's WINNING_HOOKS.
+- [ ] Declarative @zetabotai voice, matches the cadence of the report's WINNING_HOOKS.
 - [ ] At least one post uses the "Repost to help a [founder/freelancer]" CTA variant (per report section 7).
 
 ---

@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=1080"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { width: 1080px; height: 1080px; overflow: hidden; background-color: #F8F7F3; color: #111111; font-family: 'Plus Jakarta Sans', sans-serif; position: relative; }
+  
+  .header { position: absolute; top: 60px; left: 70px; right: 70px; display: flex; justify-content: space-between; align-items: center; z-index: 10; }
+  .header-left { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #111111; }
+  .header-right { display: flex; align-items: center; gap: 15px; }
+  .fw-text { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 26px; color: #999999; }
+  .slide-badge { width: 44px; height: 44px; background-color: #5E6AD2; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-weight: 800; font-size: 16px; }
+
+  .content { position: absolute; top: 280px; left: 70px; right: 70px; z-index: 5; }
+  .headline { font-size: 85px; font-weight: 900; letter-spacing: -3px; line-height: 1.05; }
+  .headline em { font-family: 'Instrument Serif', serif; font-style: italic; color: #5E6AD2; font-weight: 400; padding-left: 5px; }
+  
+  .s7-line { width: 60px; height: 4px; background-color: #5E6AD2; margin: 40px 0; }
+  .subhead { font-size: 32px; font-weight: 600; color: #555555; max-width: 900px; line-height: 1.4; }
+
+  .bottom-area { position: absolute; bottom: 80px; left: 70px; right: 70px; display: flex; justify-content: space-between; align-items: flex-end; z-index: 5; }
+  .s7-pill { background-color: #111111; color: white; padding: 20px 40px; border-radius: 50px; font-size: 20px; font-weight: 800; display: inline-block; letter-spacing: -0.5px; }
+  .s7-pill em { font-family: 'Instrument Serif', serif; font-style: italic; color: #5E6AD2; font-weight: 400; margin-left: 5px; font-size: 24px; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-left">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z" fill="#5E6AD2"/><path d="M4.5 4.5L10.5 10.5M19.5 19.5L13.5 13.5M19.5 4.5L13.5 10.5M4.5 19.5L10.5 13.5" stroke="#5E6AD2" stroke-width="2"/></svg>
+      THE LESSON
+    </div>
+    <div class="header-right">
+      <div class="fw-text">founders wing / 2026</div>
+      <div class="slide-badge">07</div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="headline">Master the</div>
+    <div class="headline">startup loops <em>LOOPS.</em></div>
+    <div class="s7-line"></div>
+    <div class="subhead">Follow for more posts on startup loops and the reality of building in public.</div>
+  </div>
+  <div class="bottom-area">
+    <div class="s7-pill">follow founders wing for daily <em>frameworks.</em></div>
+  </div>
+</body>
+</html>

@@ -11,8 +11,17 @@ ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
 
 feeds = [
-    {"source": "TechCrunch AI", "url": "https://techcrunch.com/category/artificial-intelligence/feed/"},
-    {"source": "VentureBeat AI", "url": "https://venturebeat.com/category/ai/feed/"}
+    {"source": "Law.com / The American Lawyer", "url": "https://feeds.feedburner.com/law/headlines"},
+    {"source": "Reuters Legal News", "url": "https://www.reuters.com/legal/rss"},
+    {"source": "Above the Law", "url": "https://abovethelaw.com/feed/"},
+    {"source": "Law360", "url": "https://www.law360.com/rss/articles"},
+    {"source": "Legaltech News", "url": "https://feeds.feedburner.com/legaltechnews/headlines"},
+    {"source": "Staffing Industry Analysts", "url": "https://www2.staffingindustry.com/rss"},
+    {"source": "SHRM", "url": "https://www.shrm.org/rss/pages/rss.aspx"},
+    {"source": "ERE.net", "url": "https://www.ere.net/feed/"},
+    {"source": "Artificial Lawyer", "url": "https://www.artificiallawyer.com/feed/"},
+    {"source": "LawSites by Bob Ambrogi", "url": "https://www.lawnext.com/feed"},
+    {"source": "TechCrunch AI", "url": "https://techcrunch.com/category/artificial-intelligence/feed/"}
 ]
 
 headers = {

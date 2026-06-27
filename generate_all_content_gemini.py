@@ -90,12 +90,12 @@ if os.path.exists("./ai_news_data.json"):
 # Shared writing instructions based on content-doctrine.md and voice-profile.md
 writing_rules = """
 WRITING RULES:
-1. Third-person observer voice, no "I" or "my" or "we" statements. (Except in CTAs: "follow me for daily AI breakdowns", "follow me for more").
-2. Exciting but grounded tone. Excitement should feel earned. Use sentence fragments, casual contractions, or conversational pivots.
-3. No jargon: no LLM, parameters, tokens, inference, fine-tuning, multimodal, latency, hallucination, RAG, prompt engineering. Explain these concepts simply.
+1. Third-person observer voice, no "I" or "my" or "we" statements. (Except in CTAs: "follow for daily legal staffing insights", "follow for more".)
+2. Authoritative yet accessible tone. Speak like a senior legal recruiter briefing a managing partner. Confident, specific, no hedging. Use data to support claims but explain in plain language.
+3. No jargon without context: no LLM, parameters, tokens, inference, fine-tuning, multimodal, latency, hallucination, RAG, prompt engineering. If referencing legal tech, explain what it does in one sentence.
 4. No em-dashes anywhere. Use normal commas, semicolons, or periods instead.
 5. Do NOT include any headline, title, or header for the posts (like 'Headline: ...' or bold title lines). Start the content of the post directly with its first sentence/hook.
-6. Post structure: Hook (1-2 lines) -> Pain point -> Actionable value -> Dream picture -> Engagement question -> CTA.
+6. Post structure: Hook (1-2 lines, under 120 characters) -> Pain point or data point -> Actionable insight -> Real-world consequence ("so what" for law firms or legal professionals) -> Engagement question (specific, never "what do you think?") -> CTA.
 7. Banned words (NEVER USE ANY): delve, underscore, vibrant, tapestry, interplay, intricate, garner, pivotal, showcase, foster, align with, landscape, key (as adjective), leverages, encompasses, facilitates, utilized, commenced, subsequent to, prior to, in order to, stands as, serves as, is a testament to, plays a vital role, plays a significant role, plays a crucial role, enduring legacy, lasting impact, indelible mark, it's important to note, it's worth noting, no discussion would be complete without, moreover, furthermore, in addition, setting the stage for, marking a shift, evolving landscape, reflects broader trends, game-changer, supercharge, real results, real strategy, real conversations, disruptive, hustle, grind, crush it, synergy, paradigm shift, thought leader, go viral, revolutionary, groundbreaking, unprecedented, cutting-edge, state-of-the-art, next-generation, empower, unlock, journey, ecosystem, world-class, comprehensive, curated, innovative, transformative, passionate, excited to share.
 8. Banned LinkedIn patterns:
    - "No X. No Y. Just Z."
@@ -114,9 +114,12 @@ WRITING RULES:
    - "Not just X, but also Y"
    - "Not only X, but Y"
 10. Varied sentence lengths. Specific numbers over adjectives. No bullets where flowing prose works better.
+11. NICHE CONTEXT: All content must be relevant to legal staffing, law firm hiring, legal talent acquisition, or legal career trends. Reference specific practice areas (litigation, corporate/M&A, IP, regulatory, employment law), firm types (Am Law 100, midsize, boutique, in-house legal departments), and real market dynamics.
+12. Line break after every 1-2 sentences. Use white space between blocks. LinkedIn is a mobile-first platform.
+13. No external links in post body ("link in comments" if needed). No hashtags or maximum 1 at the very end.
 """
 
-system_prompt_main = f"""You are Prithal Bhardwaj's AI copywriter. Write a single, highly engaging LinkedIn post based on the instructions.
+system_prompt_main = f"""You are Vikrant Upadhyay's AI copywriter. Write a single, highly engaging LinkedIn post based on the instructions.
 {writing_rules}
 """
 
@@ -197,7 +200,7 @@ Start directly with the hook. No titles.
         "prompt": f"""Write POST 4 (Unfair Advantage).
 Tool: Theker's generalist factory robot.
 Description: Theker raised 85 million dollars to build robots that don't specialize in a single task, allowing small factories to deploy them for arbitrary manual operations that traditionally required custom, expensive automation programming.
-MUST naturally mention "FounderWing" in the body text or call to action.
+MUST naturally mention "Zetabot AI" in the body text or call to action.
 Archetype: Unfair Advantage | Emotion: WOW.
 Start directly with the hook. No titles.
 """
@@ -216,7 +219,7 @@ Start directly with the hook. No titles.
         "prompt": f"""Write POST 6 (Hot Take).
 Topic: Meta's new AI unit being called a "soul-crushing gulag" by its engineers.
 Hot Take: The race for AGI has created a toxic work culture where engineers are treated as disposable inputs. True startup moats are built on sustainable engineering cultures and distribution, not by burning out talent in a compute race.
-MUST naturally mention "FounderWing" in the body text.
+MUST naturally mention "Zetabot AI" in the body text.
 Archetype: Hot Take | Emotion: THINK.
 Start directly with the hook. No titles.
 """
@@ -265,7 +268,7 @@ print(f"11 Main Posts saved to linkedin_posts_{date_compact}.txt")
 # Now generate the Carousel JSON
 print("Generating Carousel JSON...")
 carousel_json_prompt = f"""
-You are Prithal Bhardwaj's AI visual content designer.
+You are Vikrant Upadhyay's AI visual content designer.
 Based on the generated Carousel post (Post 3) below, you must generate the structured JSON configuration for the Carousel slides.
 
 Post Content:
@@ -332,7 +335,7 @@ Your JSON must strictly follow this structure:
     "HEADLINE_PART_1": "Build the future",
     "HEADLINE_PART_2": "and protect your stack",
     "HEADLINE_EMPHASIS": "BUILD",
-    "SUBHEAD": "Follow @founderswing for more breakdowns on startup loops and strategy."
+    "SUBHEAD": "Follow @zetabotai for more breakdowns on startup loops and strategy."
   }}
 }}
 Generate slide JSON configs reflecting today's Carousel content. Make sure all values are filled in.
@@ -361,7 +364,7 @@ if carousel_json_str:
 # Now generate the Infographic JSON
 print("Generating Infographic JSON...")
 infographic_json_prompt = f"""
-You are Prithal Bhardwaj's AI visual content designer.
+You are Vikrant Upadhyay's AI visual content designer.
 Based on the generated Infographic post (Post 4) below, you must generate the structured JSON configuration for the Infographic.
 
 Post Content:
@@ -377,7 +380,7 @@ Your JSON must strictly follow this structure:
   "date_label": "2025 Microsoft Report",
   "takeaway_num": "2 Mins",
   "takeaway_text": "is the average time between interruptions for a typical employee, leading to severe focus fragmentation.",
-  "source": "Source: Microsoft Work Trend Index | @founderswing",
+  "source": "Source: Microsoft Work Trend Index | @zetabotai",
   "bars": [
     {{ "label": "Daily Interruptions (Meetings/Chats) - 275", "value": "91%", "color": "#E63946" }},
     {{ "label": "Lack of Time/Energy to Finish Work", "value": "80%", "color": "#D9785B" }},

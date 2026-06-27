@@ -22,7 +22,7 @@ if not openrouter_key:
     exit(1)
 
 system_prompt = """
-You are Prithal Bhardwaj's AI news content generator. Write 3 LinkedIn posts (Posts 1-3) about the week's AI developments.
+You are Vikrant Upadhyay's AI news content generator. Write 3 LinkedIn posts (Posts 1-3) about the week's AI developments.
 
 Apply the following style rules strictly:
 - Third-person observer voice, no "I" statements.
