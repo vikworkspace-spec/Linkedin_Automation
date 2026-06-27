@@ -1,10 +1,10 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """Deliver the 2026-06-14 Varun-lane batch (16 posts + visuals) to #linkedin-content."""
 import json, os, subprocess, urllib.request, urllib.parse, time
 
 BASE = os.path.dirname(os.path.abspath(__file__)); os.chdir(BASE)
 TOKEN = subprocess.check_output("grep '^SLACK_BOT_TOKEN=' .env | cut -d'=' -f2", shell=True).decode().strip()
-CHANNEL = "C0AVBBTD529"
+CHANNEL = "C0BDL4V7VT4"
 
 def api(method, payload, json_body=True):
     if json_body:
@@ -27,7 +27,7 @@ def upload(label, path, title, comment):
     c = api("files.completeUploadExternal", {"files": [{"id": g["file_id"], "title": title}], "channel_id": CHANNEL, "initial_comment": comment})
     print(f"  [{label}] {os.path.basename(path)} {'OK' if c.get('ok') else 'ERR ' + str(c.get('error'))}"); time.sleep(0.7)
 
-HEADER = ("📅 *LinkedIn Content Drop — June 14, 2026*\n16 posts ready (4 Reddit-based + 7 AI News + 5 performance), "
+HEADER = ("ðŸ“… *LinkedIn Content Drop â€” June 14, 2026*\n16 posts ready (4 Reddit-based + 7 AI News + 5 performance), "
           "all in the new Varun lane with first-person CTAs. Carousels (incl. a real-image ElevenLabs brand-story) "
           "and infographics attached below.")
 
@@ -53,14 +53,14 @@ So strip it back. In a world where AI does the doing, one human ability holds it
 
 Which skill is the most future-proof in the AI age?
 
-☐ Judgment, knowing what is actually worth doing
-☐ Taste, knowing what is good and what is not
-☐ People, trust and relationships a bot cannot fake
-☐ Adaptability, how fast you pick up whatever comes next
+â˜ Judgment, knowing what is actually worth doing
+â˜ Taste, knowing what is good and what is not
+â˜ People, trust and relationships a bot cannot fake
+â˜ Adaptability, how fast you pick up whatever comes next
 
 Drop the one you are betting your next five years on, and why."""
 
-AINEWS_HEADER = "📰 *AI News Posts — June 14, 2026*\n7 plain-English posts, impact-framed:"
+AINEWS_HEADER = "ðŸ“° *AI News Posts â€” June 14, 2026*\n7 plain-English posts, impact-framed:"
 
 AI1 = """OpenAI will now teach you to use AI, for free.
 
@@ -162,7 +162,7 @@ Which of the three hit hardest for you?
 
 Follow me for daily AI breakdowns."""
 
-PERF_HEADER = "📈 *Performance Posts — June 14, 2026*\n5 posts modeled on your top-performing analytics:"
+PERF_HEADER = "ðŸ“ˆ *Performance Posts â€” June 14, 2026*\n5 posts modeled on your top-performing analytics:"
 
 PERF1 = """Everyone is bracing for AI to take their job. Almost nobody is bracing for the opposite problem.
 
@@ -186,10 +186,10 @@ So say it. No judgment, everyone is feeling at least one of these.
 
 What scares you most about AI at work?
 
-☐ That it will quietly make my role unnecessary
-☐ That I am already behind and cannot catch up
-☐ That I will have to relearn everything every year
-☐ Honestly nothing, I am more excited than scared
+â˜ That it will quietly make my role unnecessary
+â˜ That I am already behind and cannot catch up
+â˜ That I will have to relearn everything every year
+â˜ Honestly nothing, I am more excited than scared
 
 Drop the one that is most true for you right now."""
 
@@ -199,9 +199,9 @@ What changed. It is turning into an AI-first answer engine. You ask a full quest
 
 Why it matters for anyone who sells, creates, or gets found online:
 
-• Ranking number one means less when the answer shows up before anyone clicks.
-• Getting quoted by the AI is the new getting found. Your reputation and where you are mentioned matter more than your keywords.
-• The brands that win are the ones AI chooses to cite, not the ones who gamed the old algorithm.
+â€¢ Ranking number one means less when the answer shows up before anyone clicks.
+â€¢ Getting quoted by the AI is the new getting found. Your reputation and where you are mentioned matter more than your keywords.
+â€¢ The brands that win are the ones AI chooses to cite, not the ones who gamed the old algorithm.
 
 This does not happen overnight, but the slow version already started. The people who adjust early get a head start on the ones who wait for their traffic to drop.
 
@@ -209,7 +209,7 @@ If half your customers found you through Google, what would you change this mont
 
 Follow me for more."""
 
-CAP_CAROUSEL = """━━━ CAROUSEL (Reddit) — ElevenLabs, real source images ━━━
+CAP_CAROUSEL = """â”â”â” CAROUSEL (Reddit) â€” ElevenLabs, real source images â”â”â”
 
 Any voice can now be cloned from a few seconds of audio.
 The same tech that lets creators dub a video into 30 languages also lets a stranger fake your voice on a phone call. ElevenLabs is the tool behind both.
@@ -217,7 +217,7 @@ The opportunity and the threat are the exact same product.
 Have you heard an AI voice you genuinely could not tell was fake?
 Follow me for daily AI breakdowns."""
 
-CAP_INFOGRAPHIC = """━━━ INFOGRAPHIC (Reddit) ━━━
+CAP_INFOGRAPHIC = """â”â”â” INFOGRAPHIC (Reddit) â”â”â”
 
 The average worker is interrupted 275 times a day. That is once every two minutes.
 We built tools that can do hours of work in seconds, then filled every one of those seconds with a notification.
@@ -226,7 +226,7 @@ Attention just became the most valuable thing you own.
 How many of your 275 daily interruptions actually needed you?
 Follow me for more on working in the AI age."""
 
-CAP_PERF_CAROUSEL = """━━━ PERFORMANCE CAROUSEL ━━━
+CAP_PERF_CAROUSEL = """â”â”â” PERFORMANCE CAROUSEL â”â”â”
 
 5 skills you were told to master that AI just made worthless.
 And the one thing that replaced each of them. The pattern repeats every time: the doing got automated, the deciding got valuable.
@@ -234,7 +234,7 @@ None of this means you are behind. It means the game changed and most people are
 Which of these did you spend years getting good at?
 Save this and follow me for more on where work is heading."""
 
-CAP_PERF_DATAVIZ = """━━━ PERFORMANCE DATA VISUAL ━━━
+CAP_PERF_DATAVIZ = """â”â”â” PERFORMANCE DATA VISUAL â”â”â”
 
 80 percent of workers now use AI. Almost none of them use it well.
 Two years ago it was 53 percent. Today nearly everyone has access, but only about 1 in 5 use it regularly, and most of that is tidying up emails.

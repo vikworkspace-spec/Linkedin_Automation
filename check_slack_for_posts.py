@@ -1,4 +1,4 @@
-import os
+﻿import os
 import json
 import urllib.request
 import urllib.error
@@ -22,7 +22,7 @@ if not slack_token:
     print(json.dumps({"error": "SLACK_BOT_TOKEN not found in .env"}))
     exit(1)
 
-channel = "C0AVBBTD529" # #linkedin-content
+channel = "C0BDL4V7VT4" # #linkedin-content
 download_dir = "/Users/prithal/3d website/linkedin-automation-routine/slack_downloads"
 history_file = "/Users/prithal/3d website/linkedin-automation-routine/scheduled_history.json"
 

@@ -1,161 +1,18 @@
-const puppeteer = require('puppeteer-core');
+/**
+ * schedule_all_posts.cjs — Schedules LinkedIn posts with human-like behavior
+ *
+ * Uses anti_detection.js for all timing, typing, mouse movement, and
+ * browsing patterns. No fixed delays, no injected CSS, no hard exits.
+ *
+ * Prerequisites: agent-browser running with LinkedIn logged in.
+ */
+
+const pup = require('puppeteer-core');
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-async function getElementShadow(page, selector) {
-  const handle = await page.evaluateHandle((sel) => {
-    function findEl(root) {
-      if (!root) return null;
-      const el = root.querySelector(sel);
-      if (el) return el;
-      const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, null, false);
-      let node;
-      while (node = walker.nextNode()) {
-        if (node.shadowRoot) {
-          const found = findEl(node.shadowRoot);
-          if (found) return found;
-        }
-      }
-      return null;
-    }
-    return findEl(document.body);
-  }, selector);
-  return handle.asElement();
-}
-
-async function waitForSelectorShadow(page, selector, timeout = 15000) {
-  const startTime = Date.now();
-  while (Date.now() - startTime < timeout) {
-    const el = await getElementShadow(page, selector);
-    if (el) {
-      await el.dispose();
-      return true;
-    }
-    await new Promise(r => setTimeout(r, 500));
-  }
-  throw new Error(`Timeout waiting for shadow selector: ${selector}`);
-}
-
-async function clickNativelyShadow(page, finderFn) {
-  try {
-    await page.evaluate(() => {
-      document.querySelectorAll('.msg-overlay-container, [class*="msg-overlay"], #msg-overlay').forEach(el => el.remove());
-    });
-
-    const handle = await page.evaluateHandle((finder) => {
-      const fn = new Function('return ' + finder)();
-      function findInShadow(root) {
-        if (!root) return null;
-        const res = fn(root);
-        if (res) return res;
-        const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, null, false);
-        let node;
-        while (node = walker.nextNode()) {
-          if (node.shadowRoot) {
-            const found = findInShadow(node.shadowRoot);
-            if (found) return found;
-          }
-        }
-        return null;
-      }
-      return findInShadow(document.body);
-    }, finderFn.toString());
-
-    const el = handle.asElement();
-    if (el) {
-      const tagAndClass = await page.evaluate(e => {
-        return `${e.tagName} class="${e.className}" text="${e.innerText ? e.innerText.trim().substring(0,30) : ''}"`;
-      }, el);
-      console.log(`clickNativelyShadow: Found element: <${tagAndClass}>`);
-      try {
-        await page.evaluate(e => {
-          e.focus();
-          e.scrollIntoView({ block: 'center', inline: 'center' });
-        }, el);
-        await new Promise(r => setTimeout(r, 200));
-        await el.click();
-      } catch (clickErr) {
-        console.log("Puppeteer native click failed, falling back to programmatic event sequence:", clickErr.message);
-        await page.evaluate(e => {
-          const rect = e.getBoundingClientRect();
-          const x = rect.left + rect.width / 2;
-          const y = rect.top + rect.height / 2;
-          const opts = { bubbles: true, cancelable: true, view: window, screenX: x, screenY: y, clientX: x, clientY: y };
-          e.dispatchEvent(new PointerEvent('pointerdown', opts));
-          e.dispatchEvent(new MouseEvent('mousedown', opts));
-          e.focus();
-          e.dispatchEvent(new PointerEvent('pointerup', opts));
-          e.dispatchEvent(new MouseEvent('mouseup', opts));
-          e.dispatchEvent(new MouseEvent('click', opts));
-        }, el);
-      }
-      await el.dispose();
-      return true;
-    }
-    return false;
-  } catch (err) {
-    console.error("clickNativelyShadow error:", err);
-    return false;
-  }
-}
-
-async function clickNativelyShadowRetry(page, finderFn, timeout = 15000) {
-  const startTime = Date.now();
-  while (Date.now() - startTime < timeout) {
-    const clicked = await clickNativelyShadow(page, finderFn);
-    if (clicked) return true;
-    await new Promise(r => setTimeout(r, 1000));
-  }
-  return false;
-}
-
-async function fillFieldShadow(page, selector, value) {
-  const el = await getElementShadow(page, selector);
-  if (!el) throw new Error(`Could not find element to fill: ${selector}`);
-  
-  await page.evaluate((input) => {
-    input.focus();
-    input.select();
-  }, el);
-  
-  await new Promise(r => setTimeout(r, 500));
-  await page.keyboard.press('Backspace');
-  
-  await new Promise(r => setTimeout(r, 500));
-  await page.keyboard.type(value);
-  await page.keyboard.press('Enter');
-  await new Promise(r => setTimeout(r, 200));
-  await page.keyboard.press('Escape');
-  await new Promise(r => setTimeout(r, 200));
-  await page.keyboard.press('Tab');
-  await el.dispose();
-  await new Promise(r => setTimeout(r, 1000));
-}
-
-async function fillTimeComboboxShadow(page, selector, value) {
-  const el = await getElementShadow(page, selector);
-  if (!el) throw new Error(`Could not find combobox element to fill: ${selector}`);
-  
-  await page.evaluate((input) => {
-    input.focus();
-    input.select();
-  }, el);
-  
-  await new Promise(r => setTimeout(r, 500));
-  await page.keyboard.press('Backspace');
-  
-  await new Promise(r => setTimeout(r, 500));
-  await page.keyboard.type(value);
-  console.log(`Typed ${value} into time combobox, waiting for suggestions...`);
-  await new Promise(r => setTimeout(r, 1500));
-  
-  await page.keyboard.press('ArrowDown');
-  await new Promise(r => setTimeout(r, 500));
-  await page.keyboard.press('Enter');
-  await el.dispose();
-  await new Promise(r => setTimeout(r, 1000));
-}
+const H = require('./anti_detection.js');
 
 // ==========================================
 // ALL 11 POSTS — 4 per day across 3 days

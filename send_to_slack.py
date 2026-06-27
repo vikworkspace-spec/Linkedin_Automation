@@ -16,7 +16,7 @@ if not slack_token:
     print("Error: SLACK_BOT_TOKEN not found in .env")
     exit(1)
 
-channel = "C0AVBBTD529"
+channel = "C0BDL4V7VT4"
 date_str = datetime.date.today().isoformat()
 date_compact = date_str.replace("-", "")
 
@@ -203,7 +203,30 @@ for i in range(1, 8):
         send_slack_message(posts[post_key])
 
 # Upload the Text Posts PDF
+# Generate posts PDF from TXT if missing
 posts_pdf_path = f"linkedin_posts_{date_compact}.pdf"
+if not os.path.exists(posts_pdf_path):
+    print(f"Posts PDF {posts_pdf_path} not found; generating from TXT...")
+    try:
+        import subprocess
+        txt_path = f"linkedin_posts_{date_compact}.txt"
+        if os.path.exists(txt_path):
+            subprocess.run(["py", "-c", f"""
+import subprocess as sp
+sp.run(['pip', 'install', 'fpdf2', '-q'], capture_output=True)
+from fpdf import FPDF
+pdf = FPDF()
+pdf.add_page()
+pdf.set_font('Courier', size=10)
+with open('{txt_path}', encoding='utf-8') as f:
+for line in f:
+    line = line.encode('latin-1', 'replace').decode('latin-1')
+    pdf.cell(0, 5, txt=line, new_x='LMARGIN', new_y='NEXT')
+pdf.output('{posts_pdf_path}')
+print('PDF generated successfully')
+"""], shell=True, capture_output=True)
+    except Exception as gen_err:
+        print(f"Could not generate PDF: {gen_err}")
 upload_slack_file(
     posts_pdf_path,
     f"linkedin_posts_{date_compact}.pdf",

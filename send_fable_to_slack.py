@@ -16,7 +16,7 @@ if not slack_token:
     print("Error: SLACK_BOT_TOKEN not found in .env")
     exit(1)
 
-channel = "C0AVBBTD529"
+channel = "C0BDL4V7VT4"
 date_str = datetime.date.today().isoformat()
 
 def send_slack_message(text):

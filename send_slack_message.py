@@ -1,4 +1,4 @@
-import sys
+﻿import sys
 import json
 import urllib.request
 
@@ -20,7 +20,7 @@ try:
 except Exception as e:
     exit(1)
 
-channel = "C0AVBBTD529" # #linkedin-content
+channel = "C0BDL4V7VT4" # #linkedin-content
 
 url = "https://slack.com/api/chat.postMessage"
 headers = {
