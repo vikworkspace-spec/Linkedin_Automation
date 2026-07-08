@@ -103,14 +103,14 @@ Word count: [N] words
 
 prompt = "Write Post 1, Post 2, and Post 3 now. Focus on the staffing and recruitment industry. Do not include any intro or outro conversational text, just output the posts formatted exactly as requested."
 
-url = "https://openrouter.ai/api/v1/chat/completions"
+url = "https://api.deepseek.com/v1/chat/completions"
 headers = {
     "Authorization": f"Bearer {openrouter_key}",
     "Content-Type": "application/json"
 }
 
 payload = {
-    "model": "~anthropic/claude-sonnet-latest",
+    "model": "deepseek-chat",
     "max_tokens": 1500,
     "messages": [
         {"role": "system", "content": system_prompt},
@@ -126,7 +126,7 @@ req = urllib.request.Request(
 )
 
 try:
-    print("Calling OpenRouter to generate staffing industry AI news posts...")
+    print("Calling DeepSeek API to generate staffing industry AI news posts...")
     with urllib.request.urlopen(req, context=ctx) as res:
         resp = json.loads(res.read().decode("utf-8"))
         text = resp["choices"][0]["message"]["content"]
@@ -138,10 +138,10 @@ try:
         print(f"Staffing industry AI news posts generated and saved to {out_path}")
         
 except urllib.error.HTTPError as e:
-    print(f"HTTP Error calling OpenRouter API: {e.code} {e.reason}")
+    print(f"HTTP Error calling DeepSeek API: {e.code} {e.reason}")
     try:
         print("Response body:", e.read().decode("utf-8"))
     except Exception:
         pass
 except Exception as e:
-    print(f"Error calling OpenRouter API: {e}")
+    print(f"Error calling DeepSeek API: {e}")

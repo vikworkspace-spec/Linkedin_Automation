@@ -22,15 +22,17 @@ if not openrouter_key:
     exit(1)
 
 system_prompt = """
-You are Vikrant Upadhyay's AI news content generator. Write the remaining 4 LinkedIn posts (Post 4, Post 5, Post 6, and Post 7) about the week's AI developments.
+You are Zetabot AI's staffing and recruitment content generator. Write the remaining 4 LinkedIn posts (Post 4, Post 5, Post 6, and Post 7) about this week's developments in staffing, recruitment, human resources, and HR technology.
+
+Your audience: HR leaders, recruiters, staffing agency owners, and talent acquisition professionals.
 
 Apply the following style rules strictly:
 - Third-person observer voice, no "I" statements.
-- Exciting but grounded tone. Excitement should feel earned. Use sentence fragments, casual contractions, or conversational pivots.
-- No jargon: no LLM, parameters, tokens, inference, fine-tuning, multimodal, API, latency, hallucination, RAG, prompt engineering.
-- Every technical fact must be followed immediately by its human consequence (the "so what" rule).
+- Sharp, data-backed, slightly contrarian tone.
+- No HR jargon: no ATS, HCM, HRIS, RPO, MSP, VMS unless you explain what it means in plain English immediately.
+- Every stat must be followed by its real-world consequence for a recruiter or HR leader (the "so what" rule).
 - No em-dashes anywhere. Use normal commas, semicolons, or periods instead.
-- 150-300 words for posts 4-6, under 120 words for post 7 (Steal This).
+- 150-300 words for posts 4-6, under 120 words for post 7.
 - Sentence case headings.
 - Hook under 120 characters, never start with "I".
 - Line break after every 1-2 sentences. Use white space between blocks.
@@ -38,13 +40,24 @@ Apply the following style rules strictly:
 - No hashtags or maximum 1 at the very end.
 - Every post must end with a specific question (never "what do you think?").
 - Avoid banned words: game-changer, disruptive, hustle, grind, crush it, synergy, paradigm shift, thought leader, go viral, revolutionary, groundbreaking, unprecedented, cutting-edge, state-of-the-art, next-generation.
-- Include exactly 1 natural mention of "Zetabot AI" in Post 6 (Hot Take) and 1 in Post 4 (Unfair Advantage). Make it fit naturally.
+- Include exactly 1 natural mention of "Zetabot AI" in Post 4 and 1 in Post 6. Make it fit naturally.
 
-Here are the news items of the week (June 1-4, 2026) to cover:
-- Post 4 (Unfair Advantage): S&P Global's Credit Memo Builder. Explain how analysts can build credit memos in minutes. Include natural Zetabot AI mention.
-- Post 5 (Career/Income): The transition from prompt engineers to Multi-Agent Squad Managers. Explain the new high-paying career opportunity of managing teams of agents. End with a concrete action, not "stay adaptable."
-- Post 6 (Hot Take): Anthropic's confidential S-1 IPO filing. Challenge the optimistic funding narrative; explain it as a cash-out before training cost squeeze. Include natural Zetabot AI mention.
-- Post 7 (Steal This): Under 120 words. A specific agent squad prompt workflow worth copying.
+Topic areas to pull from (staffing/HR/recruitment lens only):
+- AI-powered recruiting tools and ATS innovations
+- Hiring market trends, employment data, wage shifts
+- Skills-based hiring replacing degree requirements
+- Remote work shifts affecting talent acquisition
+- Gig economy, contingent workforce, and staffing agency models
+- Pay transparency laws, DEI in hiring, compliance changes
+- Recruitment marketing and employer branding tactics that work
+- Time-to-fill, cost-per-hire, and retention metrics
+- Real recruiting stories with specific numbers
+
+Post structure:
+- Post 4 (Unfair Advantage): A staffing/HR tool, tactic, or insight that gives early adopters a real edge. NOT a general AI tool — must be about hiring, recruiting, or managing talent. Include one Zetabot AI mention.
+- Post 5 (Career/Income): A shift in recruiting careers, HR roles, or staffing agency models. What job or skill is becoming more valuable (or less) in the talent industry. End with a concrete action.
+- Post 6 (Hot Take): A contrarian take on a staffing/HR industry belief. Challenge the conventional wisdom. Example angles: "job boards are dead," "culture fit is a liability," "the counteroffer always backfires," "degree requirements are costing you top talent." Include one Zetabot AI mention.
+- Post 7 (Steal This): Under 120 words. A specific, copyable recruiting tactic, outreach template, or hiring workflow that a recruiter can use today.
 
 Structure the output EXACTLY like this:
 ==================================================
@@ -54,7 +67,7 @@ Headline: [Post 4 Headline]
 
 [Post 4 Text]
 
-Tools/stories featured: [Names]
+Topic: [Topic]
 Source: [Source]
 Archetype: Unfair Advantage | Emotion: WOW
 Why this works: [Brief explanation]
@@ -67,7 +80,7 @@ Headline: [Post 5 Headline]
 
 [Post 5 Text]
 
-Tools/stories featured: [Names]
+Topic: [Topic]
 Source: [Source]
 Archetype: Career/Income | Emotion: AHA
 Why this works: [Brief explanation]
@@ -80,7 +93,7 @@ Headline: [Post 6 Headline]
 
 [Post 6 Text]
 
-Tools/stories featured: [Names]
+Topic: [Topic]
 Source: [Source]
 Archetype: Hot Take | Emotion: THINK
 Why this works: [Brief explanation]
@@ -93,23 +106,44 @@ Headline: [Post 7 Headline]
 
 [Post 7 Text]
 
-Tools/stories featured: [Names]
+Topic: [Topic]
 Source: [Source]
 Archetype: Steal This | Emotion: WOW
 Why this works: [Brief explanation]
 Word count: [N] words
 """
 
+# Load AI news data to include in the prompt
+if os.path.exists("./ai_news_data.json"):
+    try:
+        with open("./ai_news_data.json", "r", encoding="utf-8") as f:
+            news_data = json.load(f)
+        news_snippets = []
+        for item in news_data[:20]:
+            title = item.get("title", "")
+            source = item.get("source", "")
+            if title:
+                news_snippets.append(f"- {title} (Source: {source})")
+        if news_snippets:
+            system_prompt += "\n\nHere are the staffing/HR/recruitment news items available this week. Use these as source material:\n" + "\n".join(news_snippets)
+        else:
+            system_prompt += "\n\n(No news data available — use your knowledge of recent staffing/HR/recruitment industry developments)"
+    except Exception as e:
+        print(f"Note: Could not load AI news data for prompt: {e}")
+        system_prompt += "\n\n(News data unavailable — use your knowledge of recent staffing/HR/recruitment industry developments)"
+else:
+    system_prompt += "\n\n(News data unavailable — use your knowledge of recent staffing/HR/recruitment industry developments)"
+
 prompt = "Write Post 4, Post 5, Post 6, and Post 7 now. Do not include any intro or outro conversational text, just output the posts formatted exactly as requested."
 
-url = "https://openrouter.ai/api/v1/chat/completions"
+url = "https://api.deepseek.com/v1/chat/completions"
 headers = {
     "Authorization": f"Bearer {openrouter_key}",
     "Content-Type": "application/json"
 }
 
 payload = {
-    "model": "~anthropic/claude-sonnet-latest",
+    "model": "deepseek-chat",
     "max_tokens": 1500,
     "messages": [
         {"role": "system", "content": system_prompt},
@@ -125,7 +159,7 @@ req = urllib.request.Request(
 )
 
 try:
-    print("Calling OpenRouter to generate Post 6 and Post 7...")
+    print("Calling DeepSeek API to generate staffing/HR posts 4-7...")
     with urllib.request.urlopen(req, context=ctx) as res:
         resp = json.loads(res.read().decode("utf-8"))
         text = resp["choices"][0]["message"]["content"]

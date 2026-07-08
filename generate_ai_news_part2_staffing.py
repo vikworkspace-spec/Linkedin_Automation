@@ -106,14 +106,14 @@ Word count: [N] words
 
 prompt = "Write Post 4, Post 5, Post 6, and Post 7 now. Focus on the staffing and recruitment industry. Do not include any intro or outro conversational text, just output the posts formatted exactly as requested."
 
-url = "https://openrouter.ai/api/v1/chat/completions"
+url = "https://api.deepseek.com/v1/chat/completions"
 headers = {
     "Authorization": f"Bearer {openrouter_key}",
     "Content-Type": "application/json"
 }
 
 payload = {
-    "model": "~anthropic/claude-sonnet-latest",
+    "model": "deepseek-chat",
     "max_tokens": 1500,
     "messages": [
         {"role": "system", "content": system_prompt},
@@ -129,7 +129,7 @@ req = urllib.request.Request(
 )
 
 try:
-    print("Calling OpenRouter to generate staffing posts 4-7...")
+    print("Calling DeepSeek API to generate staffing posts 4-7...")
     with urllib.request.urlopen(req, context=ctx) as res:
         resp = json.loads(res.read().decode("utf-8"))
         text = resp["choices"][0]["message"]["content"]

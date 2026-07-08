@@ -94,7 +94,7 @@ cd carousel-routine && npm install
 ### ✍️ Content Generation Scripts
 | File | Purpose |
 |------|---------|
-| `generate_posts_via_openrouter.py` | Generate 4 Reddit-based posts via OpenRouter/Claude API |
+| `generate_posts_via_openrouter.py` | Generate 4 Reddit-based posts via DeepSeek API |
 | `generate_posts_via_anthropic.py` | Alternative: Generate posts via Anthropic API directly |
 | `generate_ai_news.py` | Generate 7 AI news posts |
 | `generate_ai_news_part2.py` | Continuation script for AI news generation |
