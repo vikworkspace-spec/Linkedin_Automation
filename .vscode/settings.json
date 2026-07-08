@@ -1,0 +1,8 @@
+{
+  // If you want to resolve the 'copilot-utility-small' warning,
+  // uncomment and configure the utility model below:
+  // "copilot.agent.utilityModel": {
+  //   "provider": "github",
+  //   "model": "gpt-4o-mini"
+  // }
+}
